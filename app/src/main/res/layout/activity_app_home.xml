@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    android:orientation="vertical"
+    tools:context=".MainActivity2"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="7dp">
 
-    <TextView
-        android:id="@+id/splashHeading"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="@string/welcome_to_my_app"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints" />
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_to_my_app"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/open_cal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:text="Calendar"
+            android:textColor="@color/blue"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_margin="40dp"
+            android:onClick="open_cal"/>
+
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="1269dp"
+        android:layout_marginTop="438dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rectangle"
+        android:contentDescription=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/c2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="891dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/c6"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="1323dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/c5"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="1323dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/c4"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="926dp"
+        android:layout_marginBottom="485dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/c1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="891dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/c3"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="926dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="485dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+</LinearLayout>
