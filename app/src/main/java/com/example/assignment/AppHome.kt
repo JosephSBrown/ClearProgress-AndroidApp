@@ -20,5 +20,11 @@ class MainActivity2 : AppCompatActivity() {
             val intent = Intent(this, Calendar::class.java)
             startActivity(intent)
         }
+
+        val anotherButtonClick = findViewById<Button>(R.id.open_todo)
+        anotherButtonClick.setOnClickListener{
+            val intent = Intent(this, ToDoList::class.java)
+            startActivity(intent)
+        }
     }
 }

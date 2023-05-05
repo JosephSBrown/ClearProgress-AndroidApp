@@ -37,7 +37,31 @@
             android:layout_margin="40dp"
             android:onClick="open_cal"/>
 
+        <Button
+            android:id="@+id/open_todo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:text="To Do List"
+            android:textColor="@color/blue"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_margin="40dp"
+            android:onClick="open_todo"/>
 
+        <Button
+            android:id="@+id/open_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:text="Notes"
+            android:textColor="@color/blue"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_margin="40dp"
+            android:onClick="open_notes"/>
 
     </LinearLayout>
 
@@ -51,81 +75,5 @@
         android:contentDescription=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/c2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="520dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="891dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
-        android:id="@+id/c6"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="1323dp"
-        android:layout_marginBottom="88dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
-        android:id="@+id/c5"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="1323dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="88dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
-        android:id="@+id/c4"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="926dp"
-        android:layout_marginBottom="485dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
-        android:id="@+id/c1"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="520dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginBottom="891dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bg"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
-        android:id="@+id/c3"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="926dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="485dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/circle" />
 
 </LinearLayout>
