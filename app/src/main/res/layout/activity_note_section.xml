@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ToDoList">
+    android:orientation="vertical"
+    tools:context=".NoteSection">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="To-Do"
+                android:text="Notes"
                 android:layout_margin="20dp"
                 android:textSize="40sp"
                 android:textAlignment="center"
@@ -44,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:id="@+id/newTaskButton"
+                android:id="@+id/newNoteButton"
                 android:backgroundTint="@color/blue"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -54,14 +55,16 @@
                 android:layout_marginHorizontal="20dp"
                 app:icon="@drawable/ic_baseline_add_24"
                 app:iconTint="@color/white"
-                app:iconSize="30dp"/>
+                app:iconSize="30dp"
+                android:onClick="newNote"/>
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
+        <ListView
+            android:id="@+id/NoteList"
             android:layout_height="match_parent"
-            android:id="@+id/todo_recycler"/>
+            android:layout_width="match_parent"
+            android:dividerHeight="2dp"/>
 
     </LinearLayout>
 

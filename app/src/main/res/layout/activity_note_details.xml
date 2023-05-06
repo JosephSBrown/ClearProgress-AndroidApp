@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ToDoList">
+    tools:context=".NoteDetails"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="To-Do"
+                android:text="Edit"
                 android:layout_margin="20dp"
                 android:textSize="40sp"
                 android:textAlignment="center"
@@ -44,25 +45,51 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:id="@+id/newTaskButton"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/newNoteButton"
                 android:backgroundTint="@color/blue"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:paddingLeft="28dp"
                 android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="20dp"
-                app:icon="@drawable/ic_baseline_add_24"
+                app:icon="@drawable/ic_baseline_check_24"
+                app:iconSize="25dp"
                 app:iconTint="@color/white"
-                app:iconSize="30dp"/>
+                android:paddingLeft="30dp"
+                android:onClick="saveNote"/>
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/todo_recycler"/>
+            android:text="Note Title"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            style="@style/TextAppearance.AppCompat.Title"/>
+
+        <EditText
+            android:id="@+id/note_title"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Note Details"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            style="@style/TextAppearance.AppCompat.Title"/>
+
+        <EditText
+            android:id="@+id/note_detail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/black"/>
+
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -18,9 +18,9 @@
 
             <Button
                 android:id="@+id/return_back"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:text="Back"
                 android:backgroundTint="@color/blue"
                 android:textColor="@color/white"
@@ -31,38 +31,40 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="To-Do"
+                android:text="Notes"
                 android:layout_margin="20dp"
                 android:textSize="40sp"
                 android:textAlignment="center"
                 />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:id="@+id/newTaskButton"
-                android:backgroundTint="@color/blue"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:paddingLeft="28dp"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="20dp"
-                app:icon="@drawable/ic_baseline_add_24"
-                app:iconTint="@color/white"
-                app:iconSize="30dp"/>
-
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ListView
+            android:id="@+id/NoteList"
+             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/todo_recycler"/>
+            android:dividerHeight="2dp"
+            android:padding="10dp"/>
 
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newNoteButton"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:iconTint="@color/white"
+        app:iconSize="30dp"
+        android:onClick="newNote"/>
 
 </RelativeLayout>

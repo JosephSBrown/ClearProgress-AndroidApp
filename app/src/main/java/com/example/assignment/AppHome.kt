@@ -26,5 +26,11 @@ class MainActivity2 : AppCompatActivity() {
             val intent = Intent(this, ToDoList::class.java)
             startActivity(intent)
         }
+
+        val oneMoreButtonClick = findViewById<Button>(R.id.open_notes)
+        oneMoreButtonClick.setOnClickListener{
+            val intent = Intent(this, NoteSection::class.java)
+            startActivity(intent)
+        }
     }
 }
