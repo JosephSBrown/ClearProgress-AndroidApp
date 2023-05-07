@@ -6,6 +6,7 @@ import java.util.Date;
 public class Note {
 
     public static ArrayList<Note> noteArrayList = new ArrayList<>();
+    public static String noteEdit = "noteEdit";
 
     private int id;
     private String title;
@@ -24,6 +25,31 @@ public class Note {
         this.title = title;
         this.description = description;
         deleted = null;
+    }
+
+    public static Note getNoteForID(int  passedNoteID)
+    {
+        for (Note note: noteArrayList)
+        {
+            if(note.getId() == passedNoteID)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
+
+    public static ArrayList<Note> nonDeleted()
+    {
+        ArrayList<Note> notDeleted = new ArrayList<>();
+        for(Note note: noteArrayList)
+        {
+            if(note.deleted == null)
+            {
+                notDeleted.add(note);
+            }
+        }
+        return notDeleted;
     }
 
     public int getId() {

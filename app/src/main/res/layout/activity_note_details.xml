@@ -89,6 +89,16 @@
             android:layout_gravity="center"
             android:textColor="@color/black"/>
 
+        <Button
+            android:id="@+id/delete_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Note"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/blue"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:onClick="deleteNote"/>
 
     </LinearLayout>
 
