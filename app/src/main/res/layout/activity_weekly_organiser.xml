@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calendar">
+    tools:context=".WeeklyOrganiser">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,10 +13,10 @@
 
         <Button
             android:id="@+id/return_back"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:text="Back"
+            android:backgroundTint="@color/blue"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -25,28 +25,15 @@
             />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Calendar"
+            android:text="Weekly"
             android:layout_margin="20dp"
-            android:textSize="40sp"
+            android:textSize="34sp"
             android:textAlignment="center"
             />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/weekly_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Weekly View"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:onClick="weekly_view"
-        android:layout_margin="10dp"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,7 +51,7 @@
             android:background="@android:color/transparent"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:onClick="previousMonthAction"
+            android:onClick="previousWeekAction"
             />
 
         <TextView
@@ -85,11 +72,11 @@
             android:textColor="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:onClick="nextMonthAction"
+            android:onClick="nextWeekAction"
             />
 
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -163,6 +150,25 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendar_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Schedule"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:onClick="newEvent"
+        />
+
+    <ListView
+        android:id="@+id/events_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"/>
 
 </LinearLayout>
