@@ -19,22 +19,111 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_to_my_app"
+            android:text="@string/app_title"
             android:textAlignment="center"
-            android:textSize="40sp"
+            android:textSize="35sp"
             android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/rectangle"
+            >
+
+            <TextView
+                android:id="@+id/location_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/last_update_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Updated"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/status_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weather Status"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/temperature_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Degrees"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/minimum_temperature_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Min Temp"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="10dp"/>
+
+                <TextView
+                    android:id="@+id/maximum_temperature_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Max Temp"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="10dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/open_cal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
             android:text="Calendar"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:layout_margin="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="40dp"
             android:onClick="open_cal"/>
 
         <Button
@@ -42,12 +131,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
             android:text="To Do List"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:layout_margin="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="40dp"
             android:onClick="open_todo"/>
 
         <Button
@@ -55,12 +145,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
             android:text="Notes"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:layout_margin="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="40dp"
             android:onClick="open_notes"/>
 
     </LinearLayout>

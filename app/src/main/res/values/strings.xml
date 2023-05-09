@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ClearProgress</string>
     <string name="app_motto">The App to help you keep Organised and Motivated and Clearly Achieve Your Goals</string>
-    <string name="welcome_to_my_app">Welcome to My App</string>
+    <string name="app_title">Clear Progress</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -11,7 +11,6 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="item_completion">Item Completion</string>
     <string name="item_information">Item Information</string>
