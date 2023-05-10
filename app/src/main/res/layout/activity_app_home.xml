@@ -136,7 +136,7 @@
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="40dp"
             android:onClick="open_todo"/>
 
@@ -150,9 +150,23 @@
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="40dp"
             android:onClick="open_notes"/>
+
+        <Button
+            android:id="@+id/open_reminders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Reminders"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="40dp"
+            android:onClick="open_reminders"/>
 
     </LinearLayout>
 

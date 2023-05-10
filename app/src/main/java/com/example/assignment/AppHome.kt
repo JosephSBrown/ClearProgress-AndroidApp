@@ -5,27 +5,19 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import com.example.assignment.databinding.ActivityAppHomeBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.gson.Gson
-import com.google.gson.JsonArray
-import com.google.gson.JsonParser
-import com.google.gson.internal.Streams.parse
 import org.json.JSONObject
 import java.net.URL
-import java.text.SimpleDateFormat
 import java.util.*
 import javax.net.ssl.HttpsURLConnection
 import java.lang.Thread
-import java.io.InputStreamReader
-import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
@@ -119,7 +111,7 @@ class MainActivity2 : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updateUI(jsonObj: JSONObject)
     {
-        var formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
+        val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
         val main = jsonObj.getJSONObject("main")
         val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
         runOnUiThread {
@@ -132,6 +124,12 @@ class MainActivity2 : AppCompatActivity() {
                 binding.statusText.text = weather.getString("description").capitalize()
             }
         }
+    }
+
+    fun open_reminders(view: View)
+    {
+        val intent = Intent(this, Reminders::class.java)
+        startActivity(intent)
     }
 
 }
