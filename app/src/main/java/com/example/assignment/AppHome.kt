@@ -1,38 +1,51 @@
 package com.example.assignment
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.AsyncTask
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import com.example.assignment.databinding.ActivityAppHomeBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.JsonParser
+import com.google.gson.internal.Streams.parse
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.net.ssl.HttpsURLConnection
+import java.lang.Thread
+import java.io.InputStreamReader
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 class MainActivity2 : AppCompatActivity() {
 
-    //val city: String = "Ramsey, UK"
-    val api: String = "API_HERE"
+    val api: String = "6606e6ca0d0b29cd7007c5ddedc73d97"
 
-    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var binding: ActivityAppHomeBinding
 
-    var lastLongitude: Double = 0.0
-    var lastLatitude: Double = 0.0
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
+    private var lastLongitude: Double = 0.0
+    private var lastLatitude: Double = 0.0
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.activity_app_home)
+        binding = ActivityAppHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -56,7 +69,8 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
 
-        weather().execute()
+        fetchWeather().start()
+
     }
 
     private fun fetchLocation()
@@ -75,63 +89,49 @@ class MainActivity2 : AppCompatActivity() {
             {
                 lastLatitude = it.latitude
                 lastLongitude = it.longitude
+                //Toast.makeText(applicationContext, "$lastLongitude $lastLatitude", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
-    inner class weather() : AsyncTask<String, Void, String>()
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun fetchWeather() : Thread
     {
-        override fun onPreExecute()
-        {
-            super.onPreExecute()
-            findViewById<TextView>(R.id.status_text).visibility = View.VISIBLE
-        }
+        return Thread {
+            val url = URL("https://api.openweathermap.org/data/2.5/weather?lat=$lastLatitude&lon=$lastLongitude&appid=$api")
+            val connection = url.openConnection() as HttpsURLConnection
 
-        override fun doInBackground(vararg p0: String?) : String?
-        {
-            var response: String?
-            try
+            if (connection.responseCode == 200)
             {
-                response = URL("https://api.openweathermap.org/data/2.5/weather?lat=(35.6762)&lon=(139.6503)&appid=$api").readText(Charsets.UTF_8)
+                val json = url.readText(Charsets.UTF_8)
+                val jsonObj = JSONObject(json)
+
+                updateUI(jsonObj)
             }
-            catch(e: java.lang.Exception)
+            else
             {
-                response = null;
-            }
-            return response
-        }
-
-        override fun onPostExecute(result: String?) {
-            super.onPostExecute(result)
-
-            try
-            {
-                val jsonObj = JSONObject(result)
-                val main = jsonObj.getJSONObject("main")
-                val sys = jsonObj.getJSONObject("sys")
-                val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
-                val updated:Long = jsonObj.getLong("uk")
-                val updatedText = "Updated At: " + SimpleDateFormat("dd/mm/yyyy hh:mm:ss a", Locale.ENGLISH).format(Date(updated*1000))
-                val temp = main.getString("temp") + "°C"
-                val tempmin = "Min Temp: " + main.getString("temp_min") + "°C"
-                val tempmax = "Max Temp: " + main.getString("temp_max") + "°C"
-                val status = weather.getString("description")
-                val location = jsonObj.getString("name") + ", " + sys.getString("country")
-
-                findViewById<TextView>(R.id.location_text).text = location.capitalize()
-                findViewById<TextView>(R.id.last_update_text).text = updatedText
-                findViewById<TextView>(R.id.status_text).text = status
-                findViewById<TextView>(R.id.temperature_text).text = temp
-                findViewById<TextView>(R.id.minimum_temperature_text).text = tempmin
-                findViewById<TextView>(R.id.maximum_temperature_text).text = tempmax
-            }
-            catch (e: java.lang.Exception)
-            {
-                findViewById<TextView>(R.id.location_text).text = "ERROR!"
+                println(url)
+                println("Error!")
             }
         }
+    }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun updateUI(jsonObj: JSONObject)
+    {
+        var formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
+        val main = jsonObj.getJSONObject("main")
+        val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
+        runOnUiThread {
+            kotlin.run {
+                binding.locationText.text = jsonObj.getString("name")
+                binding.lastUpdateText.text = "Last Update: " + LocalTime.now().format(formatter)
+                binding.temperatureText.text = main.getString("temp") + "°C"
+                binding.minimumTemperatureText.text = "Min: " + main.getString("temp_min") + "°C"
+                binding.maximumTemperatureText.text = "Max: " + main.getString("temp_max") + "°C"
+                binding.statusText.text = weather.getString("description").capitalize()
+            }
+        }
     }
 
 }
