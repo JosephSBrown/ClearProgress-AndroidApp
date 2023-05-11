@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
-import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import com.example.assignment.databinding.ActivityAppHomeBinding
