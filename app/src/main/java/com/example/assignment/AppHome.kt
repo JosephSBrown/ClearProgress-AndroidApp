@@ -114,13 +114,22 @@ class MainActivity2 : AppCompatActivity() {
         val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
         val main = jsonObj.getJSONObject("main")
         val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
+        val temp = main.getDouble("temp")
+        val newtemp = temp - 273.15
+        val roundedtemp = newtemp.toInt()
+        val mintemp = main.getDouble("temp_min")
+        val newmintemp = mintemp - 273.15
+        val roundedmintemp = newmintemp.toInt()
+        val maxtemp = main.getDouble("temp_max")
+        val newmaxtemp = maxtemp - 273.15
+        val roundedmaxtemp = newmaxtemp.toInt()
         runOnUiThread {
             kotlin.run {
                 binding.locationText.text = jsonObj.getString("name")
                 binding.lastUpdateText.text = "Last Update: " + LocalTime.now().format(formatter)
-                binding.temperatureText.text = main.getString("temp") + "°C"
-                binding.minimumTemperatureText.text = "Min: " + main.getString("temp_min") + "°C"
-                binding.maximumTemperatureText.text = "Max: " + main.getString("temp_max") + "°C"
+                binding.temperatureText.text = roundedtemp.toString() + "°C"
+                binding.minimumTemperatureText.text = "Min: " + roundedmintemp.toString() + "°C"
+                binding.maximumTemperatureText.text = "Max: " + roundedmaxtemp.toString() + "°C"
                 binding.statusText.text = weather.getString("description").capitalize()
             }
         }

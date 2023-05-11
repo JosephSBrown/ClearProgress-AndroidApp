@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:text="Back"
+            android:backgroundTint="@color/blue"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -106,6 +107,7 @@
         android:textSize="20sp"
         android:text="Schedule Reminder"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/blue"/>
 
 </LinearLayout>
