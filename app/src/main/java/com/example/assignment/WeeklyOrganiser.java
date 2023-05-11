@@ -97,4 +97,6 @@ public class WeeklyOrganiser extends AppCompatActivity implements CalendarAdapte
     {
         startActivity(new Intent(this, EditSchedule.class));
     }
+
+
 }

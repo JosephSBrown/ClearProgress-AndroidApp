@@ -42,25 +42,6 @@ class MainActivity2 : AppCompatActivity() {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         fetchLocation()
-
-        val buttonClick = findViewById<Button>(R.id.open_cal)
-        buttonClick.setOnClickListener {
-            val intent = Intent(this, Calendar::class.java)
-            startActivity(intent)
-        }
-
-        val anotherButtonClick = findViewById<Button>(R.id.open_todo)
-        anotherButtonClick.setOnClickListener{
-                val intent = Intent(this, ToDoList::class.java)
-                startActivity(intent)
-            }
-
-        val oneMoreButtonClick = findViewById<Button>(R.id.open_notes)
-        oneMoreButtonClick.setOnClickListener{
-            val intent = Intent(this, NoteSection::class.java)
-            startActivity(intent)
-        }
-
         fetchWeather().start()
 
     }
@@ -138,6 +119,24 @@ class MainActivity2 : AppCompatActivity() {
     fun open_reminders(view: View)
     {
         val intent = Intent(this, Reminders::class.java)
+        startActivity(intent)
+    }
+
+    fun open_cal(view: View)
+    {
+        val intent = Intent(this, Calendar::class.java)
+        startActivity(intent)
+    }
+
+    fun open_notes(view: View)
+    {
+        val intent = Intent(this, NoteSection::class.java)
+        startActivity(intent)
+    }
+
+    fun open_todo(view: View)
+    {
+        val intent = Intent(this, ToDoList::class.java)
         startActivity(intent)
     }
 

@@ -1,8 +1,10 @@
 package com.example.assignment
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -50,5 +52,9 @@ class ToDoList : AppCompatActivity(), ToDoClickListener {
         taskViewModel.setCompleted(taskItem)
     }
 
-
+    fun returnHome(view: View)
+    {
+    val intent = Intent(this, MainActivity2::class.java)
+    startActivity(intent)
+    }
 }
