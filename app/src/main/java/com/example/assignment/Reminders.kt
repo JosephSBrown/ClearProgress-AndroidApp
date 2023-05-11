@@ -1,17 +1,13 @@
 package com.example.assignment
 
-import android.app.AlarmManager
-import android.app.AlertDialog
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.assignment.databinding.ActivityRemindersBinding
 import java.util.*
 
@@ -98,5 +94,9 @@ class Reminders : AppCompatActivity()
         channel.description = desc
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
+    }
+
+    fun returnHome() {
+        startActivity(Intent(this@Reminders, MainActivity2::class.java))
     }
 }

@@ -50,7 +50,7 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         val anotherButtonClick = findViewById<Button>(R.id.open_todo)
-            anotherButtonClick.setOnClickListener{
+        anotherButtonClick.setOnClickListener{
                 val intent = Intent(this, ToDoList::class.java)
                 startActivity(intent)
             }

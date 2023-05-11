@@ -124,7 +124,8 @@
             android:textStyle="bold"
             android:layout_marginTop="40dp"
             android:layout_marginHorizontal="40dp"
-            android:onClick="open_cal"/>
+            android:onClick="open_cal"
+            />
 
         <Button
             android:id="@+id/open_todo"
